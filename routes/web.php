@@ -25,6 +25,11 @@ Route::get('/postSensor', [SensorController::class, 'store']);
 Route::get('/getCalibrate', [SensorController::class, 'getCalibrate']);
 Route::get('/data', [SensorController::class, 'index']);
 
+Route::get('/latest', [API_Controller::class, 'latestSensor']);
+Route::get('/ratarata', [API_Controller::class, 'ratarata']);
+Route::get('/sensor', [API_Controller::class, 'sensor']);
+
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('home');
     Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
