@@ -1,0 +1,1 @@
+import{r as t,j as r}from"./app-3fd6ad04.js";const o=t.forwardRef(function({type:f="text",className:u="",isFocused:a=!1,...c},e){const s=e||t.useRef();return t.useEffect(()=>{a&&s.current.focus()},[]),r("div",{className:"flex flex-col items-start",children:r("input",{...c,type:f,className:"w-full input-profil",ref:s})})});export{o as T};
