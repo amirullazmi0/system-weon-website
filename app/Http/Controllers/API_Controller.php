@@ -298,7 +298,6 @@ class API_Controller extends Controller
         return response()->json($data);
     }
 
-
     public function register(Request $request)
     {
         $validate = Validator::make($request->all(), [

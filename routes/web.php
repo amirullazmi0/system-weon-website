@@ -8,6 +8,7 @@ use Illuminate\Foundation\Application;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,13 @@ Route::get('/data', [SensorController::class, 'index']);
 Route::get('/latest', [API_Controller::class, 'latestSensor']);
 Route::get('/ratarata', [API_Controller::class, 'ratarata']);
 Route::get('/sensor', [API_Controller::class, 'sensor']);
+
+Route::get('/rataBulanan', [RataController::class, 'rataBulanan']);
+Route::get('/rataMingguan', [RataController::class, 'rataMingguan']);
+Route::get('/rataHarian', [RataController::class, 'rataHarian']);
+Route::get('/rataJam', [RataController::class, 'rataJam']);
+
+
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
