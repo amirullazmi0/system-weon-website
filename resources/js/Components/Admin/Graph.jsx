@@ -76,7 +76,7 @@ const Graph = ({ base_url }) => {
                     <div className="grid gap-4 grid-cols-1 lg:grid-cols-2 justify-center all-sensor overflow-x-auto">
                         <div className="card bg-white lg:min-h-[510px] min-h-[320px]">
                             <div className="p-3 text-center text-xl uppercase font-bold text-[#1c1e1f]">Grafik Per Jam</div>
-                            {rataPerjam ?
+                            {rataPerjam !== null ?
                                 <ChartItem
                                     title={"Grafik Per Jam"}
                                     values={rataPerjam}
