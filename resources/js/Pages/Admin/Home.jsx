@@ -277,7 +277,7 @@ export default function Home(props) {
                 </div>
                 <div className="lg:p-6 mr-auto">
                     <SocketSensor sensor={iniSocket} latest={props.sensor} />
-                    <Graph rata={props.rata} sensor={props.allSensor} />
+                    {/* <Graph rata={props.rata} sensor={props.allSensor} /> */}
                 </div>
                 <Footer />
             </div >
