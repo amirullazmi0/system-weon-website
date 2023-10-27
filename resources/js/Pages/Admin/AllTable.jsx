@@ -54,8 +54,8 @@ export default function AllTable(props) {
                         <>
                             <div className="flex justify-center items-center card bg-white border shadow-lg p-4 m-2 h-96">
                                 <ThreeCircles
-                                    height="100"
-                                    width="100"
+                                    height="70"
+                                    width="70"
                                     color="#00a6fb"
                                     wrapperStyle={{}}
                                     wrapperClass=""
