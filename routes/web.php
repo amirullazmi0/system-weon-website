@@ -35,9 +35,6 @@ Route::get('/rataMingguan', [RataController::class, 'rataMingguan']);
 Route::get('/rataHarian', [RataController::class, 'rataHarian']);
 Route::get('/rataJam', [RataController::class, 'rataJam']);
 
-
-
-
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('home');
     Route::get('/profil', [AdminController::class, 'profil'])->name('profil');

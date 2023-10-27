@@ -15,7 +15,7 @@ export default forwardRef(function TextInput({ type = 'text', className = '', is
                 {...props}
                 type={type}
                 className={
-                    'w-full input-profil'
+                    'w-full input input-ghost input-bordered'
                 }
                 ref={input}
             />

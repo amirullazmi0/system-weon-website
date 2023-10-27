@@ -35,9 +35,9 @@ export default function Login({ status, canResetPassword }) {
             <div className="bg-body">
                 <div className="flex h-screen w-screen">
                     <div className="flex flex-auto lg:flex-1 p-4 items-center justify-center sisi-form">
-                        <div className="card-form p-5 lg:p-7  w-full lg:w-96 border">
+                        <div className="card bg-white p-5 lg:p-7  w-full lg:w-96 border">
                             <Head title="Log in" />
-                            <img className='h-28 mb-4' src="/img/loggo.png" alt="" />
+                            <img className='h-28 w-28 mb-4' src="/img/loggo.png" alt="" />
 
                             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 

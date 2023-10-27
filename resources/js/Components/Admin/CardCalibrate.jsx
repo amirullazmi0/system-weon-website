@@ -148,7 +148,7 @@ const CardCalibrate = ({ notif }) => {
                                 <input
                                     type="number"
                                     placeholder="input current value"
-                                    className="input-profil w-full max-w-xs"
+                                    className="input input-ghost input-bordered w-full max-w-xs"
                                     value={value[i].real}
                                     onChange={(e) => handleInputChange(e, i + 1)} />
                                 {value[i].analog ?
@@ -209,7 +209,7 @@ const CardCalibrate = ({ notif }) => {
     return (
         <>
             <div className="mr-auto flex justify-center">
-                <div className="card  card-calibrate card-compact lg:w-1/2 bg-base-100 border shadow-sm p-2 m-2 ">
+                <div className="card card-calibrate card-compact lg:w-1/2 w-5/6 bg-white border shadow-sm p-2 m-2 ">
                     {notif.message &&
                         <div className="alert flex justify-center">
                             <span>{notif.message}</span>

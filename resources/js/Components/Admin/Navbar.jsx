@@ -101,7 +101,7 @@ const Navbar = ({ auth, active }) => {
             {/* style={{ display: sidebar ? 'block' : 'none'}} */}
             {/* id={sidebar ? 'sidebar-on' : 'sidebar-off'} */}
             <div id={sidebar ? 'sidebar-on' : 'sidebar-off'} ref={myRef} >{iniSidebar()}</div>
-            <div className="navbar bg-ku lg:pr-6 lg:pl-6">
+            <div className="navbar mt-0 bg-ku lg:pr-6 lg:pl-6">
                 <div className="flex-1 nav-header">
                     <div className="flex mr-2 items-center">
                         <button className="btn btn-ghost hover:bg-transparent" onClick={() => openSidebar()}>
@@ -115,12 +115,16 @@ const Navbar = ({ auth, active }) => {
                 </div>
                 <div className="flex-none">
                     <div className="dropdown dropdown-end">
-                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                            <div className="rounded-full">
-                                <img className="img-profile" src="/img/profil.png" />
-                            </div>
+                        <label tabIndex={0} className="btn btn-ghost btn-circle">
+                            {/* <div className="rounded-full"> */}
+                            {/* <img className="h-7 h-7" src="/img/profil.png" /> */}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                            </svg>
+
+                            {/* </div> */}
                         </label>
-                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-7 gap-2 p-2 shadow-sm shadow-gray-500 bg-slate-50 rounded-box w-52 ">
+                        <ul tabIndex={0} className="menu menu-compact dropdown-content mt-7 gap-2 p-2 shadow-sm bg-white rounded-box w-52 ">
                             <li>
                                 <Link className={iniActive == 'profil' ? "btn btn-ghost btn-blue" : "btn btn-ghost"} method="get" href={route('profil')} as="button" >
                                     Profil

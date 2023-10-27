@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 
 const TableItem = ({ sensor }) => {
-    const jumlah = 5
+    const jumlah = 100
     const [prevNumber, setPrevNumber] = useState(0)
     const [nextNumber, setNextNumber] = useState(1)
 
@@ -13,6 +13,9 @@ const TableItem = ({ sensor }) => {
         if (prevNumber > 0) {
             setNextNumber(nextNumber - 1)
             setPrevNumber(prevNumber - 1)
+            window.scrollTo({
+                top: 0,
+            });
         }
     }
 
@@ -21,6 +24,9 @@ const TableItem = ({ sensor }) => {
         if ((jj / (jumlah * nextNumber)) >= 1) {
             setNextNumber(nextNumber + 1)
             setPrevNumber(prevNumber + 1)
+            window.scrollTo({
+                top: 0,
+            });
         }
     }
 
@@ -89,11 +95,11 @@ const TableItem = ({ sensor }) => {
                                                 <td className="font-bold">{index = index + 1}</td>
                                                 <td>{tanggal}</td>
                                                 <td>{waktu}</td>
-                                                <td>{s.value1}</td>
-                                                <td>{s.value2}</td>
-                                                <td>{s.value3}</td>
-                                                <td>{s.value4}</td>
-                                                <td>{s.value5}</td>
+                                                <td>{s.value1.toFixed(2)}</td>
+                                                <td>{s.value2.toFixed(2)}</td>
+                                                <td>{s.value3.toFixed(2)}</td>
+                                                <td>{s.value4.toFixed(2)}</td>
+                                                <td>{s.value5.toFixed(2)}</td>
                                                 <td>
                                                     <button
                                                         className="btn btn-sm"
@@ -117,9 +123,17 @@ const TableItem = ({ sensor }) => {
                     }
                     <div className="flex justify-center mt-4">
                         <div className="join flex gap-3">
-                            <button onClick={() => handlePrev()} className="join-item btn btn-ghost">«</button>
-                            <button className="join-item btn btn-ghost">Page {nextNumber}</button>
-                            <button onClick={() => handlNext()} className="join-item btn btn-ghost">»</button>
+                            <button onClick={() => handlePrev()} className="join-item btn btn-ghost">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                                </svg>
+                            </button>
+                            <button className="join-item btn btn-ghost">{nextNumber}</button>
+                            <button onClick={() => handlNext()} className="join-item btn btn-ghost">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>

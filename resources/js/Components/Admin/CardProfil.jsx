@@ -84,14 +84,17 @@ const CardProfil = ({ auth, errors, notif }) => {
                 <div className="card bg-base-100 border lg:w-1/2 w-full shadow-sm p-2 m-2">
                     {renderNotifProfil()}
                     <div className="p-3 flex justify-center">
-                        <img className='h-16' src="/img/profil.png" alt="" />
+                        {/* <img className='h-16' src="/img/profil.png" alt="" /> */}
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-14 h-14">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                        </svg>
                     </div>
                     <div className="grid grid-cols-6 gap-4 p-5 items-center">
                         <>
                             <div className="lg:col-span-2 col-span-6">Nama</div>
                             <div className="lg:col-span-1 lg:block hidden">:</div>
                             <div className="lg:col-span-3 col-span-6">
-                                <input className='w-full input-profil' value={name} onChange={(e) => setName(e.target.value)} type="text" />
+                                <input className='w-full input input-ghost input-bordered' value={name} onChange={(e) => setName(e.target.value)} type="text" />
                                 {errors.name &&
                                     <InputError message={errors.name} className="mt-2" />
                                 }
@@ -101,7 +104,7 @@ const CardProfil = ({ auth, errors, notif }) => {
                             <div className="lg:col-span-2 col-span-6">Email</div>
                             <div className="lg:col-span-1 lg:block hidden">:</div>
                             <div className="lg:col-span-3 col-span-6">
-                                <input className='w-full input-profil' value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
+                                <input className='w-full input input-ghost input-bordered' value={email} onChange={(e) => setEmail(e.target.value)} type="email" />
                                 {errors.email &&
                                     <InputError message={errors.email} className="mt-2" />
                                 }
@@ -128,14 +131,14 @@ const CardProfil = ({ auth, errors, notif }) => {
                             <div className="lg:col-span-2 col-span-6">Password Baru</div>
                             <div className="lg:col-span-1 lg:block hidden">:</div>
                             <div className="lg:col-span-3 col-span-6">
-                                <input className='w-full input-profil' value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Password Baru' />
+                                <input className='w-full input input-ghost input-bordered' value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder='Password Baru' />
                             </div>
                         </>
                         <>
                             <div className="lg:col-span-2 col-span-6">Konfirmasi Password Baru</div>
                             <div className="lg:col-span-1 lg:block hidden">:</div>
                             <div className="lg:col-span-3 col-span-6">
-                                <input className={password2 != '' && password2 != password ? 'w-full input-profil-error' : 'rounded-md w-full input-profil'} value={password2} onChange={(e) => setPassword2(e.target.value)} type="password" placeholder='Konfirmasi Password Baru' />
+                                <input className={password2 != '' && password2 != password ? 'w-full input input-ghost input-bordered-error' : 'rounded-md w-full input input-ghost input-bordered'} value={password2} onChange={(e) => setPassword2(e.target.value)} type="password" placeholder='Konfirmasi Password Baru' />
                                 {password2 != '' && password2 != password &&
                                     <InputError message={"Konfirmasi Password Tidak Sama"} className="mt-2" />
                                 }

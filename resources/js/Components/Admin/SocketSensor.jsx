@@ -177,16 +177,16 @@ function SocketSensor({ sensor, latest }) {
         <>
             {renderCondition()}
             {renderModal()}
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center all-sensor">
+            <div className="grid grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-5 justify-center all-sensor p-7 lg:mt-0 mt-5">
                 {/* PH */}
-                <div className="flex justify-center card card-socket p-1 m-2 lg:mr-4 lg:ml-4" >
+                <div className="flex justify-center card bg-white shadow aspect-square">
                     <button
                         onClick={() => handleModal("ph")}
                         className={condition[0].kondisi == 'normal'
-                            ? "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
+                            ? "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
                             : condition[0].kondisi == 'low'
-                                ? "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
-                                : "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
+                                ? "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
+                                : "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
                         }>
                         <div className="indicator">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -198,23 +198,25 @@ function SocketSensor({ sensor, latest }) {
                         </div>
                     </button>
 
-                    <ArcGauge
+                    {/* <ArcGauge
                         className="gauge-socket"
                         value={!sensor.value1 ? latest.value1 / 14 * 100 : sensor.value1 / 14 * 100}
-                        color="#00a6fb" />
-                    < div className="data-sensor">{!sensor.value1 ? latest.value1 : sensor.value1} <small className="text-sm">pH</small></div>
-                    <div className="label-sensor uppercase">PH</div>
+                        color="#00a6fb" /> */}
+                    <div className="grid justify-center items-center">
+                        < div className="lg:text-5xl md:text-4xl text-3xl">{!sensor.value1 ? latest.value1 : sensor.value1}<small className="text-sm">pH</small></div>
+                        {/* <div className="label-sensor uppercase">PH</div> */}
+                    </div>
                 </div>
 
                 {/* TDS */}
-                <div className="flex justify-center card card-socket p-1 m-2 lg:mr-4 lg:ml-4">
+                <div className="flex justify-center card bg-white shadow aspect-square">
                     <button
                         onClick={() => handleModal("tds")}
                         className={condition[1].kondisi == 'normal'
-                            ? "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
+                            ? "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
                             : condition[1].kondisi == 'low'
-                                ? "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
-                                : "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
+                                ? "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
+                                : "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
                         }>
                         <div className="indicator">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -225,24 +227,26 @@ function SocketSensor({ sensor, latest }) {
                             }
                         </div>
                     </button>
-                    <ArcGauge
+                    {/* <ArcGauge
                         className="gauge-socket"
                         value={!sensor.value2 ? latest.value2 / 1000 * 100 : sensor.value2 / 1000 * 100}
-                        color="#00a6fb" />
-                    < div className="data-sensor">{!sensor.value2 ? latest.value2 : sensor.value2}<small className="text-sm">PPM</small></div>
-                    <div className="label-sensor uppercase">TDS</div>
+                        color="#00a6fb" /> */}
+                    <div className="grid justify-center items-center">
+                        < div className="lg:text-5xl md:text-4xl text-3xl">{!sensor.value2 ? latest.value2 : sensor.value2}<small className="text-sm">PPM</small></div>
+                        {/* <div className="label-sensor uppercase">TDS</div> */}
+                    </div>
                 </div>
 
                 {/* SUHU */}
 
-                <div className="flex justify-center card card-socket p-1 m-2 lg:mr-4 lg:ml-4">
+                <div className="flex justify-center card bg-white shadow aspect-square">
                     <button
                         onClick={() => handleModal("suhu")}
                         className={condition[2].kondisi == 'normal'
-                            ? "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
+                            ? "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
                             : condition[2].kondisi == 'low'
-                                ? "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
-                                : "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
+                                ? "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
+                                : "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
                         }>
                         <div className="indicator">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -253,23 +257,25 @@ function SocketSensor({ sensor, latest }) {
                             }
                         </div>
                     </button>
-                    <ArcGauge
+                    {/* <ArcGauge
                         className="gauge-socket"
                         value={!sensor.value3 ? latest.value3 / 50 * 100 : sensor.value3 / 50 * 100}
-                        color="#00a6fb" />
-                    < div className="data-sensor">{!sensor.value3 ? latest.value3 : sensor.value3}<small className="text-sm">Celcius</small></div>
-                    <div className="label-sensor uppercase">Suhu</div>
+                        color="#00a6fb" /> */}
+                    <div className="grid justify-center items-center">
+                        < div className="lg:text-5xl md:text-4xl text-3xl">{!sensor.value3 ? latest.value3 : sensor.value3}<small className="text-sm">Celcius</small></div>
+                        {/* <div className="label-sensor uppercase">Suhu</div> */}
+                    </div>
                 </div>
 
 
                 {/* SALINITAS */}
-                <div className="flex justify-center card card-socket p-1 m-2 lg:mr-4 lg:ml-4">
+                <div className="flex justify-center card bg-white shadow aspect-square">
                     <button onClick={() => handleModal("sal")}
                         className={condition[3].kondisi == 'normal'
-                            ? "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
+                            ? "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
                             : condition[3].kondisi == 'low'
-                                ? "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
-                                : "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
+                                ? "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
+                                : "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
                         }>
                         <div className="indicator">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -280,21 +286,23 @@ function SocketSensor({ sensor, latest }) {
                             }
                         </div>
                     </button>
-                    <ArcGauge className="gauge-socket" value={!sensor.value4 ? latest.value4 / 15 * 100 : sensor.value4 / 15 * 100} color="#00a6fb" />
-                    < div className="data-sensor">{!sensor.value4 ? latest.value4 : sensor.value4}<small className="text-sm">PPT</small></div>
-                    <div className="label-sensor uppercase">Salinitas</div>
+                    {/* <ArcGauge className="gauge-socket" value={!sensor.value4 ? latest.value4 / 15 * 100 : sensor.value4 / 15 * 100} color="#00a6fb" /> */}
+                    <div className="grid justify-center items-center">
+                        < div className="lg:text-5xl md:text-4xl text-3xl">{!sensor.value4 ? latest.value4 : sensor.value4}<small className="text-sm">PPT</small></div>
+                        {/* <div className="label-sensor uppercase">Salinitas</div> */}
+                    </div>
                 </div>
 
 
                 {/* AMONIA*/}
-                <div className="flex justify-center card card-socket p-1 m-2 lg:mr-4 lg:ml-4">
+                <div className="flex justify-center card bg-white shadow aspect-square">
                     <button
                         onClick={() => handleModal("amo")}
                         className={condition[4].kondisi == 'normal'
-                            ? "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
+                            ? "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
                             : condition[4].kondisi == 'low'
-                                ? "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
-                                : "absolute rounded-none btn btn-sm btn-alert top-0 right-0 z-10"
+                                ? "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
+                                : "absolute rounded-none btn-square btn btn-alert top-0 right-0 z-10"
                         }>
                         <div className="indicator">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -305,9 +313,11 @@ function SocketSensor({ sensor, latest }) {
                             }
                         </div>
                     </button>
-                    <ArcGauge className="gauge-socket" value={!sensor.value5 ? latest.value5 / 100 * 100 : sensor.value5 / 5 * 100} color="#00a6fb" />
-                    < div className="data-sensor">{!sensor.value5 ? latest.value5 : sensor.value5}<small className="text-sm">mg/L</small></div>
-                    <div className="label-sensor uppercase">AMONIA</div>
+                    {/* <ArcGauge className="gauge-socket" value={!sensor.value5 ? latest.value5 / 100 * 100 : sensor.value5 / 5 * 100} color="#00a6fb" /> */}
+                    <div className="grid justify-center items-center">
+                        < div className="lg:text-5xl md:text-4xl text-3xl">{!sensor.value5 ? latest.value5 : sensor.value5}<small className="text-sm">mg/L</small></div>
+                        {/* <div className="label-sensor uppercase">AMONIA</div> */}
+                    </div>
                 </div>
             </div>
         </>
