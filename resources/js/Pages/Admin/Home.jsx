@@ -22,6 +22,7 @@ import {
     Filler,
 } from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
+import axios from 'axios';
 
 window.Pusher = Pusher;
 
@@ -62,6 +63,8 @@ export default function Home(props) {
     const [realDataSUHU, setRealDataSUHU] = useState([])
     const [realDataSAL, setRealDataSAL] = useState([])
     const [realDataAMO, setRealDataAMO] = useState([])
+    const base_url = props.base_url
+
     const data = {
         labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',],
         datasets: [
@@ -252,7 +255,7 @@ export default function Home(props) {
                             </button>
                         </div>
                         <div className="flex justify-center">
-                                <Line options={options} data={data} height={50} width={100} />
+                            <Line options={options} data={data} height={50} width={100} />
                         </div>
                     </div>
                 </div>
@@ -277,7 +280,7 @@ export default function Home(props) {
                 </div>
                 <div className="lg:p-6 mr-auto">
                     <SocketSensor sensor={iniSocket} latest={props.sensor} />
-                    {/* <Graph rata={props.rata} sensor={props.allSensor} /> */}
+                    <Graph base_url={base_url} />
                 </div>
                 <Footer />
             </div >

@@ -5,10 +5,11 @@ use App\Events\Hello;
 use App\Events\SensorEvent;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\API_Controller;
+use App\Http\Controllers\RataController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\SensorController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RataController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +34,7 @@ Route::get('/sensor', [API_Controller::class, 'sensor']);
 Route::get('/rataBulanan', [RataController::class, 'rataBulanan']);
 Route::get('/rataMingguan', [RataController::class, 'rataMingguan']);
 Route::get('/rataHarian', [RataController::class, 'rataHarian']);
-Route::get('/rataJam', [RataController::class, 'rataJam']);
+Route::get('/rataPerjam', [RataController::class, 'rataJam']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('home');

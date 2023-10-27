@@ -25,7 +25,8 @@ class AdminController extends Controller
             "active" => "dashboard",
             "sensor" => Sensor::latest('id')->first(),
             "auth" => auth()->user(),
-            "allSensor" => Sensor::latest('id')->get(),
+            "allSensor" => Sensor::latest('id')->take(20)->get(),
+            "base_url" => env('APP_URL')
             // "rata" => $rata
         ];
         return Inertia::render('Admin/Home', $data);
@@ -38,9 +39,10 @@ class AdminController extends Controller
         $data = [
             "title" => "Data Tabel",
             "active" => "allTable",
-            "sensor" => Sensor::orderBy('id', 'desc')->get(),
+            // "sensor" => Sensor::orderBy('id', 'desc')->get(),
             "auth" => auth()->user(),
             "jumlahData" => $jumlahData,
+            "base_url" => env('APP_URL')
         ];
         // dd($data['sensor'][0]->created_at->format('d M Y'));
         return Inertia::render('Admin/AllTable', $data);

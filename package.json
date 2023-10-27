@@ -24,10 +24,12 @@
         "@faker-js/faker": "^7.6.0",
         "@progress/kendo-drawing": "^1.17.4",
         "@progress/kendo-react-gauges": "^5.11.0",
+        "axios": "^1.6.0",
         "chart.js": "^4.2.1",
         "daisyui": "^2.51.3",
         "date-fns": "^2.30.0",
         "moment": "^2.29.4",
-        "react-chartjs-2": "^5.2.0"
+        "react-chartjs-2": "^5.2.0",
+        "react-loader-spinner": "^5.4.5"
     }
 }

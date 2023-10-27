@@ -4,8 +4,32 @@ import SocketSensor from '@/Components/Admin/SocketSensor';
 import TableItem from '@/Components/Admin/TableItem';
 import { Link, Head } from '@inertiajs/react';
 import Footer from './Footer';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { ThreeCircles } from 'react-loader-spinner';
+
 export default function AllTable(props) {
-    // console.log('sensor', props.sensor)
+    const [allData, setAllData] = useState()
+    const base_url = props.base_url;
+    console.log(base_url);
+    const getAllData = async () => {
+        try {
+            const data = await axios({
+                method: 'get',
+                url: `${base_url}/sensor`,
+            });
+            if (data.data.data) {
+                console.log(data.data.data.sensor);
+                setAllData(data.data.data.sensor)
+            }
+        } catch (error) {
+
+        }
+    }
+
+    useEffect(() => {
+        getAllData()
+    }, [])
     return (
         <>
             <div className='bg-body'>
@@ -24,7 +48,26 @@ export default function AllTable(props) {
                             <div className='bg-lime-500 p-2 rounded-lg text-white'>{props.flash.delete}</div>
                         }
                     </div>
-                    <TableItem notif={props.flash} sensor={props.sensor} />
+                    {allData ?
+                        <TableItem notif={props.flash} sensor={allData} />
+                        :
+                        <>
+                            <div className="flex justify-center items-center card bg-white border shadow-lg p-4 m-2 h-96">
+                                <ThreeCircles
+                                    height="100"
+                                    width="100"
+                                    color="#00a6fb"
+                                    wrapperStyle={{}}
+                                    wrapperClass=""
+                                    visible={true}
+                                    ariaLabel="three-circles-rotating"
+                                    outerCircleColor=""
+                                    innerCircleColor=""
+                                    middleCircleColor=""
+                                />
+                            </div>
+                        </>
+                    }
                 </div>
                 <Footer />
             </div>

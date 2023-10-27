@@ -39,7 +39,7 @@ class RataController extends Controller
             if ($totalDataBulan > 0) {
                 $bulanan[] = [
                     'id' => $bulan,
-                    'bulan' =>  $namaBulan,
+                    'name' =>  $namaBulan,
                     'total' => $totalDataBulan,
                     'value1' => number_format($rataValue1 / $totalDataBulan, 2),
                     'value2' => number_format($rataValue2 / $totalDataBulan, 2),
@@ -50,13 +50,13 @@ class RataController extends Controller
             } else {
                 $bulanan[] = [
                     'id' => $bulan,
-                    'bulan' =>  $namaBulan,
-                    'total' => null,
-                    'value1' => null,
-                    'value2' => null,
-                    'value3' => null,
-                    'value4' => null,
-                    'value5' => null,
+                    'name' =>  $namaBulan,
+                    'total' => 0,
+                    'value1' => 0,
+                    'value2' => 0,
+                    'value3' => 0,
+                    'value4' => 0,
+                    'value5' => 0,
                 ];
             }
         }
@@ -99,7 +99,7 @@ class RataController extends Controller
             if ($totalDataMinggu > 0) {
                 $mingguan[] = [
                     'id' => $minggu,
-                    'minggu' => "Week " . $minggu,
+                    'name' => "Week " . $minggu,
                     'total' => $totalDataMinggu,
                     'value1' => number_format($rataValue1 / $totalDataMinggu, 2),
                     'value2' => number_format($rataValue2 / $totalDataMinggu, 2),
@@ -110,13 +110,13 @@ class RataController extends Controller
             } else {
                 $mingguan[] = [
                     'id' => $minggu,
-                    'minggu' => "Week " . $minggu,
-                    'total' => null,
-                    'value1' => null,
-                    'value2' => null,
-                    'value3' => null,
-                    'value4' => null,
-                    'value5' => null,
+                    'name' => "Week " . $minggu,
+                    'total' => 0,
+                    'value1' => 0,
+                    'value2' => 0,
+                    'value3' => 0,
+                    'value4' => 0,
+                    'value5' => 0,
                 ];
             }
         }
@@ -187,7 +187,7 @@ class RataController extends Controller
                     $namaHari = \Carbon\Carbon::parse("Sunday")->addDays($hari - 1)->locale('en_US')->dayName;
                     $harian[] = [
                         'id' => $hari,
-                        'hari' => $namaHari,
+                        'name' => $namaHari,
                         'total' => $totalDataHari,
                         'value1' => number_format($rataValue1 / $totalDataHari, 2),
                         'value2' => number_format($rataValue2 / $totalDataHari, 2),
@@ -200,13 +200,13 @@ class RataController extends Controller
                 $namaHari = \Carbon\Carbon::parse("Sunday")->addDays($hari - 1)->locale('en_US')->dayName;
                 $harian[] = [
                     'id' => $hari,
-                    'hari' => $namaHari,
-                    'total' => null,
-                    'value1' => null,
-                    'value2' => null,
-                    'value3' => null,
-                    'value4' => null,
-                    'value5' => null,
+                    'name' => $namaHari,
+                    'total' => 0,
+                    'value1' => 0,
+                    'value2' => 0,
+                    'value3' => 0,
+                    'value4' => 0,
+                    'value5' => 0,
                 ];
             }
         }
@@ -252,7 +252,7 @@ class RataController extends Controller
             if ($totalDataJam > 0) {
                 $perjam[] = [
                     'id' => $jam + 1,
-                    'jam' => $formattedJam,
+                    'name' => $formattedJam,
                     'total' => $totalDataJam,
                     'value1' => number_format($rataValue1 / $totalDataJam, 2),
                     'value2' => number_format($rataValue2 / $totalDataJam, 2),
@@ -263,13 +263,13 @@ class RataController extends Controller
             } else {
                 $perjam[] = [
                     'id' => $jam + 1,
-                    'jam' => $formattedJam,
-                    'total' => null,
-                    'value1' => null,
-                    'value2' => null,
-                    'value3' => null,
-                    'value4' => null,
-                    'value5' => null,
+                    'name' => $formattedJam,
+                    'total' => 0,
+                    'value1' => 0,
+                    'value2' => 0,
+                    'value3' => 0,
+                    'value4' => 0,
+                    'value5' => 0,
                 ];
             }
         }

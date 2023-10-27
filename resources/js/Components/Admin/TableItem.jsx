@@ -65,9 +65,9 @@ const TableItem = ({ sensor }) => {
     return (
         <>
             {renderNotif()}
-            <div className="flex justify-center card bg-base-100 border shadow-sm p-2 m-2">
+            <div className="flex justify-center card bg-white border shadow-lg p-2 m-2">
                 <div className="overflow-x-auto">
-                    {sensor || sensor == true ?
+                    {sensor !== null ?
                         <table className="table w-full">
                             {/* head */}
                             <thead>
@@ -84,7 +84,7 @@ const TableItem = ({ sensor }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {sensor.map((s, index) => {
+                                {sensor && sensor.map((s, index) => {
                                     const dateTime = new Date(s.created_at)
                                     const tanggal = format(dateTime, 'dd MMMM yyyy')
                                     const waktu = format(dateTime, 'HH:mm')
@@ -121,20 +121,20 @@ const TableItem = ({ sensor }) => {
                             <h1 className="font-bold">TIDAK ADA SENSOR</h1>
                         </div>
                     }
-                    <div className="flex justify-center mt-4">
-                        <div className="join flex gap-3">
-                            <button onClick={() => handlePrev()} className="join-item btn btn-ghost">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                                </svg>
-                            </button>
-                            <button className="join-item btn btn-ghost">{nextNumber}</button>
-                            <button onClick={() => handlNext()} className="join-item btn btn-ghost">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                                </svg>
-                            </button>
-                        </div>
+                </div>
+                <div className="flex justify-center mt-4">
+                    <div className="join flex gap-3">
+                        <button onClick={() => handlePrev()} className="join-item btn btn-ghost">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                            </svg>
+                        </button>
+                        <button className="join-item btn btn-ghost">{nextNumber}</button>
+                        <button onClick={() => handlNext()} className="join-item btn btn-ghost">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div >

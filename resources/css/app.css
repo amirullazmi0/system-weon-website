@@ -110,13 +110,13 @@
   }
 
 .tron{
-    height: 30vh;
+    height: 40vh;
     /* background-color: rgb(80, 98, 255); */
     /* background-color: #00A6FB; */
     background-color: rgb(247, 245, 241);
     /* border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px; */
-    margin-bottom: -200px;
+    margin-bottom: -180px;
 }
 
 .color{
@@ -143,6 +143,7 @@
 }
 .card-graph{
     /* background-color: rgb(255, 255, 255); */
+    margin-top: -20px;
 }
 .card-graph .card-graph-body{
     background-color: rgb(255, 255, 255);

@@ -12,13 +12,13 @@ import {
     Filler,
 } from "chart.js";
 import { Line, Bar } from "react-chartjs-2";
-import { faker } from "@faker-js/faker";
 
 
 const ChartItem = ({ title, values }) => {
+    console.log('vales', values);
     const [iniTitle, setTitle] = useState(title)
 
-    const [iniLabel, setLabel] = useState(values.map((v) => v.name.charAt(0).toUpperCase() + v.name.slice(1)))
+    const [iniLabel, setLabel] = useState(values.map((v) => v.name))
     const [value1, setValue1] = useState(values.map((vv) => vv.value1))
     const [value2, setValue2] = useState(values.map((vv) => vv.value2))
     const [value3, setValue3] = useState(values.map((vv) => vv.value3))
@@ -46,8 +46,8 @@ const ChartItem = ({ title, values }) => {
                 // position: 'top',
             },
             title: {
-                display: true,
-                text: iniTitle,
+                display: false,
+                // text: iniTitle,
             },
             filler: {
                 propagate: true
@@ -112,7 +112,7 @@ const ChartItem = ({ title, values }) => {
     return (
         <>
             <div className="flex justify-center card lg:p-3 m-2">
-                <Line options={options} data={data} height={70} width={100} />
+                <Line options={options} data={data} height={80} width={100} />
             </div>
         </>
     );
