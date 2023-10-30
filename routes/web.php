@@ -27,15 +27,6 @@ Route::get('/postSensor', [SensorController::class, 'store']);
 Route::get('/getCalibrate', [SensorController::class, 'getCalibrate']);
 Route::get('/data', [SensorController::class, 'index']);
 
-Route::get('/latest', [API_Controller::class, 'latestSensor']);
-Route::get('/ratarata', [API_Controller::class, 'ratarata']);
-Route::get('/sensor', [API_Controller::class, 'sensor']);
-
-Route::get('/rataBulanan', [RataController::class, 'rataBulanan']);
-Route::get('/rataMingguan', [RataController::class, 'rataMingguan']);
-Route::get('/rataHarian', [RataController::class, 'rataHarian']);
-Route::get('/rataPerjam', [RataController::class, 'rataJam']);
-
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('home');
     Route::get('/profil', [AdminController::class, 'profil'])->name('profil');
@@ -47,6 +38,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/calibrate', [AdminController::class, 'calibrate'])->name('calibrate');
     Route::post('/calibrate', [SensorController::class, 'editCalibrate']);
     Route::get('/prediction', [AdminController::class, 'prediction'])->name('prediction');
+
+    Route::get('/latest', [API_Controller::class, 'latestSensor']);
+    Route::get('/ratarata', [API_Controller::class, 'ratarata']);
+    Route::get('/sensor', [API_Controller::class, 'sensor']);
+
+    Route::get('/rataBulanan', [RataController::class, 'rataBulanan']);
+    Route::get('/rataMingguan', [RataController::class, 'rataMingguan']);
+    Route::get('/rataHarian', [RataController::class, 'rataHarian']);
+    Route::get('/rataPerjam', [RataController::class, 'rataJam']);
 });
 
 // new broo
