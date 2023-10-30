@@ -60,7 +60,7 @@ class AdminController extends Controller
             "title" => "Kalibrasi",
             "active" => "calibrate",
             "auth" => auth()->user(),
-            "sensor" => Sensor::orderBy('id', 'desc')->get(),
+            // "sensor" => Sensor::orderBy('id', 'desc')->get(),
         ];
         return Inertia::render('Admin/Calibrate', $data);
     }
@@ -80,7 +80,7 @@ class AdminController extends Controller
         $data = [
             "title" => "Profil",
             "active" => "profil",
-            "sensor" => Sensor::orderBy('id', 'desc')->get(),
+            // "sensor" => Sensor::orderBy('id', 'desc')->get(),
             "auth" => auth()->user(),
         ];
         return Inertia::render('Admin/Profil', $data);

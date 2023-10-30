@@ -5,7 +5,6 @@ import { Link, Head } from '@inertiajs/react';
 import Footer from './Footer';
 
 export default function Calibrate(props) {
-    console.log('props : ', props);
     return (
         <>
             <div className='bg-body'>
