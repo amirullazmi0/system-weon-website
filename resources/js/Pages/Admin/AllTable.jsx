@@ -56,7 +56,7 @@ export default function AllTable(props) {
                                 <ThreeCircles
                                     height="70"
                                     width="70"
-                                    color="#00a6fb"
+                                    color="rgb(210, 210, 210)"
                                     wrapperStyle={{}}
                                     wrapperClass=""
                                     visible={true}
