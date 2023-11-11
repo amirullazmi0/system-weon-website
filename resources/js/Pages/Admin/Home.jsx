@@ -73,7 +73,7 @@ export default function Home(props) {
                 data: realDataPH,
                 borderColor: '#ffb703',
                 backgroundColor: '#ffb703',
-                tension: 0.4,
+                tension: 0.5,
                 // fill: true,
                 borderWidth: 2, // Lebar garis
             },
@@ -82,7 +82,7 @@ export default function Home(props) {
                 data: realDataTDS,
                 borderColor: '#fb8500',
                 backgroundColor: '#fb8500',
-                tension: 0.2,
+                tension: 0.5,
                 // fill: true
                 borderWidth: 2, // Lebar garis
             },
@@ -91,7 +91,7 @@ export default function Home(props) {
                 data: realDataSUHU,
                 borderColor: '#023047',
                 backgroundColor: '#023047',
-                tension: 0.2,
+                tension: 0.5,
                 // fill: true
                 borderWidth: 2, // Lebar garis
             },
@@ -100,7 +100,7 @@ export default function Home(props) {
                 data: realDataSAL,
                 borderColor: '#219ebc',
                 backgroundColor: '#219ebc',
-                tension: 0.2,
+                tension: 0.5,
                 // fill: true
                 borderWidth: 2, // Lebar garis
             },
@@ -109,7 +109,7 @@ export default function Home(props) {
                 data: realDataAMO,
                 borderColor: '#8ecae6',
                 backgroundColor: '#8ecae6',
-                tension: 0.2,
+                tension: 0.5,
                 // fill: true
                 borderWidth: 2, // Lebar garis
             },
@@ -245,17 +245,20 @@ export default function Home(props) {
         return (
             <>
                 <div className={modal == true ? "chartModal" : "chartModal-off"}>
-                    <div className="item">
+                    <div className="item shadow-xl">
                         <div className="flex justify-between">
                             <h1 className='text-lg uppercase font-bold'>Real Time Grafik</h1>
-                            <button onClick={() => setModal(false)} className='btn btn-sm'>
+                            <button onClick={() => setModal(false)} className='btn btn-ghost btn-circle'>
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
                         </div>
-                        <div className="flex justify-center">
+                        <div className="lg:flex justify-center hidden">
                             <Line options={options} data={data} height={50} width={100} />
+                        </div>
+                        <div className="flex justify-center lg:hidden">
+                            <Line options={options} data={data} height={200} width={100} />
                         </div>
                     </div>
                 </div>
@@ -270,10 +273,11 @@ export default function Home(props) {
                 <Head title={props.title} />
                 <Navbar auth={props.auth} active={props.active} />
                 <Jumbotron />
-                <div className="flex justify-between mt-3 lg:ml-10 lg:mr-10 pl-7 pr-7">
+                <div className="flex justify-between mt-3 lg:ml-7 lg:mr-7 pl-5 pr-5">
                     <div className={!iniSocket ? "disconnected" : "connected"}></div>
-                    <button onClick={() => setModal(true)} className="btn btn-outline">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <button onClick={() => setModal(true)} className="btn bg-white btn-ghost shadow-lg flex items-center">
+                        grafik realtime
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="ml-2 w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
                         </svg>
                     </button>

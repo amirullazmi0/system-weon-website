@@ -81,7 +81,7 @@ const CardProfil = ({ auth, errors, notif }) => {
     return (
         <>
             <div className="lg:pl-6 lg:pr-6 mr-auto flex justify-center">
-                <div className="card bg-base-100 border lg:w-1/2 w-full shadow-sm p-2 m-2">
+                <div className="card bg-base-100 border lg:w-1/2 w-full shadow-xl p-2 m-2">
                     {renderNotifProfil()}
                     <div className="p-3 flex justify-center">
                         {/* <img className='h-16' src="/img/profil.png" alt="" /> */}
@@ -124,7 +124,7 @@ const CardProfil = ({ auth, errors, notif }) => {
                 </div>
             </div >
             <div className="lg:pl-6 lg:pr-6 mr-auto flex justify-center">
-                <div className="card bg-base-100 border lg:w-1/2 w-full shadow-sm p-2 m-2">
+                <div className="card bg-base-100 border lg:w-1/2 w-full shadow-xl p-2 m-2">
                     {renderNotifPassword()}
                     <div className="grid grid-cols-6 gap-4 p-5 items-center">
                         <>

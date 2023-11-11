@@ -35,15 +35,15 @@ const Navbar = ({ auth, active }) => {
                                 Water Echoes
                             </div> */}
                             <img className="h-16" src="/img/loggo.png" alt="" />
-                            <button className="btn btn-ghost btn-circle hover:bg-transparent sidebar-button ml-auto" onClick={() => closeSidebar()}>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                            <button className="btn btn-ghost btn-circle ml-auto" onClick={() => closeSidebar()}>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="black" className="w-6 h-6">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
                         </div>
                     </div>
-                    <hr />
-                    <div className="grid mt-3">
+                    {/* <hr /> */}
+                    <div className="grid mt-10">
                         <ul className="">
                             <li className="sidebar-list">
                                 <Link className={iniActive === 'dashboard' ? 'flex sidebar-item active' : 'flex sidebar-item'} method="get" href={route('home')}>
@@ -66,7 +66,7 @@ const Navbar = ({ auth, active }) => {
                                     </div>
                                 </Link>
                             </li>
-                            <hr className="mb-3" />
+                            {/* <hr className="mb-3" /> */}
                             {auth.level == 1 ?
                                 <li className="sidebar-list ">
                                     <Link className={iniActive === 'calibrate' ? 'flex sidebar-item active' : 'flex sidebar-item'} method="get" href={route('calibrate')}>
@@ -104,9 +104,9 @@ const Navbar = ({ auth, active }) => {
             <div className="navbar mt-0 bg-ku lg:pr-6 lg:pl-6">
                 <div className="flex-1 nav-header">
                     <div className="flex mr-2 items-center">
-                        <button className="btn btn-ghost hover:bg-transparent" onClick={() => openSidebar()}>
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-6 h-6 nav-side-icon">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                        <button className="btn btn-ghost btn-circle" onClick={() => openSidebar()}>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="black" className="w-6 h-6">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
                             </svg>
                         </button>
                     </div>
