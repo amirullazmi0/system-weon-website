@@ -39,7 +39,6 @@ class AdminController extends Controller
         $data = [
             "title" => "Data Tabel",
             "active" => "allTable",
-            // "sensor" => Sensor::orderBy('id', 'desc')->get(),
             "auth" => auth()->user(),
             "jumlahData" => $jumlahData,
             "base_url" => env('APP_URL')

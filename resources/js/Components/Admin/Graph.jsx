@@ -63,6 +63,8 @@ const Graph = ({ base_url }) => {
         }
     }
 
+    // const [tanggal, setTanggal] = useState(new Date)
+    // console.log('tanggal ', tanggal);
     useEffect(() => {
         getRataPerjam()
         getRataHarian()
@@ -76,7 +78,7 @@ const Graph = ({ base_url }) => {
                     <div className="card border shadow-xl bg-white lg:min-h-[510px] min-h-[320px]">
                         <div className="p-3 text-center text-xl uppercase font-bold text-[#1c1e1f]">Grafik Per Jam</div>
                         {rataPerjam ?
-                            <ChartItem
+                            < ChartItem
                                 title={"Grafik Per Jam"}
                                 values={rataPerjam}
                             />
