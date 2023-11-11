@@ -509,13 +509,12 @@
     padding: 20px;
     background-color: #FFFFFF;
     border-radius: 20px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.377);
     left: 0;
     right: 0;
     margin-left: 400px;
     margin-right: 400px;
     margin-top: 0px;
-    transition: ease-in-out 1s;
+    transition: ease-in-out 0.3s;
     z-index: 100;
     position: fixed;
 }
@@ -523,12 +522,11 @@
     padding: 20px;
     background-color: #FFFFFF;
     border-radius: 20px;
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.377);
     left: 0;
     right: 0;
-    margin-top: -350px;
-    transform: scale(0.2);
-    transition: ease-in-out 1s;
+    display: none;
+    transform: scale(0.0);
+    transition: ease-in-out 0.3s;
     margin-left: 400px;
     margin-right: 400px;
     z-index: 100;

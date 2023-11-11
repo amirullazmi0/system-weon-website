@@ -46,7 +46,7 @@ const TableItem = ({ sensor }) => {
 
     const renderNotif = () => {
         return (
-            <div className={notif == true ? "cardNotifDelete" : "cardNotifDelete-off"}>
+            <div className={notif == true ? "cardNotifDelete shadow-xl" : "cardNotifDelete-off shadow-xl"}>
                 <div className="flex justify-end">
                     <button onClick={() => setNotif(false)} className="btn btn-sm btn-ghost">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -55,7 +55,7 @@ const TableItem = ({ sensor }) => {
                     </button>
                 </div>
                 <p className="mb-4">Anda yakin untuk menghapus data ?</p>
-                <button onClick={() => submitDelete()} className="btn btn-sm btn-warning">
+                <button onClick={() => submitDelete()} className="btn btn-ghost shadow-lg border">
                     Yakin
                 </button>
             </div >
@@ -102,7 +102,7 @@ const TableItem = ({ sensor }) => {
                                                 <td>{s.value5.toFixed(2)}</td>
                                                 <td>
                                                     <button
-                                                        className="btn btn-sm"
+                                                        className="btn btn-circle btn-warning shadow-xl"
                                                         onClick={() => handleDelete(s.id)}
                                                     >
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
