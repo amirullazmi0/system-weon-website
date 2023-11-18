@@ -128,7 +128,6 @@ export default function Home(props) {
         for (let i = 0; i < 20; i++) {
             newData.push(sensor[i].value2)
         }
-        console.log('amo', newData);
         return newData;
     }, [sensor])
     const getRealDataSUHU = useCallback(() => {

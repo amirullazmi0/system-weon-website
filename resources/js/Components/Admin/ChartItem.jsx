@@ -15,7 +15,7 @@ import { Line, Bar } from "react-chartjs-2";
 
 
 const ChartItem = ({ title, values }) => {
-    console.log('vales', values);
+    // console.log('vales', values);
     const [iniTitle, setTitle] = useState(title)
 
     const [iniLabel, setLabel] = useState(values.map((v) => v.name))
@@ -25,7 +25,15 @@ const ChartItem = ({ title, values }) => {
     const [value4, setValue4] = useState(values.map((vv) => vv.value4))
     const [value5, setValue5] = useState(values.map((vv) => vv.value5))
 
-
+    useEffect(() => {
+        console.log('value2', values)
+        setLabel(values.map((v) => v.name))
+        setValue1(values.map((vv) => vv.value1))
+        setValue2(values.map((vv) => vv.value2))
+        setValue3(values.map((vv) => vv.value3))
+        setValue4(values.map((vv) => vv.value4))
+        setValue5(values.map((vv) => vv.value5))
+    }, [values])
     ChartJS.register(
         CategoryScale,
         LinearScale,
@@ -42,9 +50,6 @@ const ChartItem = ({ title, values }) => {
         type: 'line',
         responsive: true,
         plugins: {
-            legend: {
-                // position: 'top',
-            },
             title: {
                 display: false,
                 // text: iniTitle,
