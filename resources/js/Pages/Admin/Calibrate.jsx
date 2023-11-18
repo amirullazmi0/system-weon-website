@@ -7,6 +7,7 @@ import Footer from './Footer';
 export default function Calibrate(props) {
     return (
         <>
+            {/* console */}
             <div className='bg-body'>
                 <Head title={props.title} />
                 <Navbar auth={props.auth} active={props.active} />
