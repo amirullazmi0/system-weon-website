@@ -1,1 +1,0 @@
-import{a as e,F as a,j as r}from"./app-022da155.js";function t(){return e(a,{children:r("div",{className:"p-4 grid bg-yellow-400 justify-center bottom-0 text-center",children:[r("span",{className:"",children:["Weon ",e("small",{children:"v1.0 2023"})]}),e("small",{children:"Created By Roomiroo ❤"})]})})}export{t as default};
