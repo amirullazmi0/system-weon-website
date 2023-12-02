@@ -1,71 +1,71 @@
 {
-  "_Graph-2be75b41.js": {
-    "file": "assets/Graph-2be75b41.js",
+  "_Graph-32c5cb4f.js": {
+    "file": "assets/Graph-32c5cb4f.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Hourglass-0928c8c8.js"
+      "_Hourglass-e2f46294.js"
     ]
   },
-  "_Hourglass-0928c8c8.js": {
-    "file": "assets/Hourglass-0928c8c8.js",
+  "_Hourglass-e2f46294.js": {
+    "file": "assets/Hourglass-e2f46294.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_InputError-030d5048.js": {
-    "file": "assets/InputError-030d5048.js",
+  "_InputError-0412da4c.js": {
+    "file": "assets/InputError-0412da4c.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Navbar-18aa24eb.js": {
-    "file": "assets/Navbar-18aa24eb.js",
+  "_Navbar-7fa30fdf.js": {
+    "file": "assets/Navbar-7fa30fdf.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_index-81c4868e.js": {
-    "file": "assets/index-81c4868e.js",
+  "_index-ad162fde.js": {
+    "file": "assets/index-ad162fde.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "resources/js/Pages/Admin/AllTable.jsx": {
-    "file": "assets/AllTable-9130efed.js",
+    "file": "assets/AllTable-3db9cd79.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Navbar-18aa24eb.js",
-      "_index-81c4868e.js",
+      "_Navbar-7fa30fdf.js",
+      "_index-ad162fde.js",
       "resources/js/Pages/Admin/Footer.jsx",
-      "_Hourglass-0928c8c8.js"
+      "_Hourglass-e2f46294.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/AllTable.jsx"
   },
   "resources/js/Pages/Admin/Calibrate.jsx": {
-    "file": "assets/Calibrate-094f2e69.js",
+    "file": "assets/Calibrate-62f75cb5.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Navbar-18aa24eb.js",
+      "_Navbar-7fa30fdf.js",
       "resources/js/Pages/Admin/Footer.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/Calibrate.jsx"
   },
   "resources/js/Pages/Admin/Chart.jsx": {
-    "file": "assets/Chart-0a724788.js",
+    "file": "assets/Chart-ae0f4b7a.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Graph-2be75b41.js",
-      "_Navbar-18aa24eb.js",
+      "_Graph-32c5cb4f.js",
+      "_Navbar-7fa30fdf.js",
       "resources/js/Pages/Admin/Footer.jsx",
-      "_Hourglass-0928c8c8.js"
+      "_Hourglass-e2f46294.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/Chart.jsx"
   },
   "resources/js/Pages/Admin/Footer.jsx": {
-    "file": "assets/Footer-a6af107d.js",
+    "file": "assets/Footer-131286c3.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -73,34 +73,34 @@
     "src": "resources/js/Pages/Admin/Footer.jsx"
   },
   "resources/js/Pages/Admin/Home.jsx": {
-    "file": "assets/Home-84f67ca7.js",
+    "file": "assets/Home-e95a5465.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Graph-2be75b41.js",
-      "_Navbar-18aa24eb.js",
-      "_index-81c4868e.js",
+      "_Graph-32c5cb4f.js",
+      "_Navbar-7fa30fdf.js",
+      "_index-ad162fde.js",
       "resources/js/Pages/Admin/Footer.jsx",
-      "_Hourglass-0928c8c8.js"
+      "_Hourglass-e2f46294.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/Home.jsx"
   },
   "resources/js/Pages/Admin/Profil.jsx": {
-    "file": "assets/Profil-f9f45ba1.js",
+    "file": "assets/Profil-b1fd102d.js",
     "imports": [
       "resources/js/app.jsx",
-      "_InputError-030d5048.js",
-      "_Navbar-18aa24eb.js",
+      "_InputError-0412da4c.js",
+      "_Navbar-7fa30fdf.js",
       "resources/js/Pages/Admin/Footer.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/Profil.jsx"
   },
   "resources/js/Pages/Auth/Login.jsx": {
-    "file": "assets/Login-a6d4b4f0.js",
+    "file": "assets/Login-bedfb2fa.js",
     "imports": [
       "resources/js/app.jsx",
-      "_InputError-030d5048.js"
+      "_InputError-0412da4c.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Login.jsx"
@@ -122,7 +122,7 @@
       "resources/js/Pages/Admin/Profil.jsx",
       "resources/js/Pages/Auth/Login.jsx"
     ],
-    "file": "assets/app-0510f66a.js",
+    "file": "assets/app-8abb3b0e.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
   }
