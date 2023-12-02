@@ -21,8 +21,7 @@ import {
     LineController,
     Filler,
 } from "chart.js";
-import { Line, Bar } from "react-chartjs-2";
-import axios from 'axios';
+import CardChartRealtime from '@/Components/Admin/CardChartRealtime';
 
 window.Pusher = Pusher;
 
@@ -34,29 +33,9 @@ window.Echo = new Echo({
     forceTLS: true
 });
 
-const options = {
-    type: 'line',
-    responsive: true,
-    plugins: {
-        legend: {
-            // position: 'top',
-        },
-        title: {
-            display: true,
-            // text: "iniTitle",
-        },
-        filler: {
-            propagate: true
-        }
-    },
-    interaction: {
-        intersect: true,
-    },
-};
 
 export default function Home(props) {
     const [iniSocket, setSocket] = useState('')
-    const [modal, setModal] = useState(false)
     const [sensor, setSensor] = useState(props.allSensor)
     const [realDataPH, setRealDataPH] = useState([])
     const [realDataTDS, setRealDataTDS] = useState([])
@@ -65,56 +44,6 @@ export default function Home(props) {
     const [realDataAMO, setRealDataAMO] = useState([])
     const base_url = props.base_url
 
-    const data = {
-        labels: ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',],
-        datasets: [
-            {
-                label: 'pH',
-                data: realDataPH,
-                borderColor: '#ffb703',
-                backgroundColor: '#ffb703',
-                tension: 0.5,
-                // fill: true,
-                borderWidth: 2, // Lebar garis
-            },
-            {
-                label: 'TDS',
-                data: realDataTDS,
-                borderColor: '#fb8500',
-                backgroundColor: '#fb8500',
-                tension: 0.5,
-                // fill: true
-                borderWidth: 2, // Lebar garis
-            },
-            {
-                label: 'Suhu',
-                data: realDataSUHU,
-                borderColor: '#023047',
-                backgroundColor: '#023047',
-                tension: 0.5,
-                // fill: true
-                borderWidth: 2, // Lebar garis
-            },
-            {
-                label: 'Salinitas',
-                data: realDataSAL,
-                borderColor: '#219ebc',
-                backgroundColor: '#219ebc',
-                tension: 0.5,
-                // fill: true
-                borderWidth: 2, // Lebar garis
-            },
-            {
-                label: 'Amonia',
-                data: realDataAMO,
-                borderColor: '#8ecae6',
-                backgroundColor: '#8ecae6',
-                tension: 0.5,
-                // fill: true
-                borderWidth: 2, // Lebar garis
-            },
-        ],
-    };
     const getRealDataPH = useCallback(() => {
         const newData = [];
         for (let i = 0; i < 20; i++) {
@@ -163,7 +92,6 @@ export default function Home(props) {
         setRealDataSUHU(value3)
         setRealDataSAL(value4)
         setRealDataAMO(value5)
-        // setRealData(newData);
     }, [sensor])
 
 
@@ -239,51 +167,53 @@ export default function Home(props) {
         }
     });
 
-
-    const renderModal = () => {
-        return (
-            <>
-                <div className={modal == true ? "chartModal" : "chartModal-off"}>
-                    <div className="item shadow-xl">
-                        <div className="flex justify-between">
-                            <h1 className='text-lg uppercase font-bold'>Real Time Grafik</h1>
-                            <button onClick={() => setModal(false)} className='btn btn-ghost btn-circle'>
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div className="lg:flex justify-center hidden">
-                            <Line options={options} data={data} height={50} width={100} />
-                        </div>
-                        <div className="flex justify-center lg:hidden">
-                            <Line options={options} data={data} height={200} width={100} />
-                        </div>
-                    </div>
-                </div>
-            </>
-        )
-    }
-
     return (
         <>
-            {renderModal()}
             <div className='bg-body'>
                 <Head title={props.title} />
                 <Navbar auth={props.auth} active={props.active} />
                 <Jumbotron />
                 <div className="flex justify-between mt-3 lg:ml-7 lg:mr-7 pl-5 pr-5">
                     <div className={!iniSocket ? "disconnected" : "connected"}></div>
-                    <button onClick={() => setModal(true)} className="btn bg-white btn-ghost shadow-lg flex items-center">
-                        grafik realtime
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="ml-2 w-6 h-6">
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605" />
-                        </svg>
-                    </button>
                 </div>
                 <div className="lg:p-6 mr-auto">
                     <SocketSensor sensor={iniSocket} latest={props.sensor} />
-                    <Graph base_url={base_url} />
+                    <CardChartRealtime
+                        title={'Data Realtime pH'}
+                        label={'ph'}
+                        name={'ph'}
+                        batasMaksimum={8.5}
+                        batasMinimum={7.5}
+                        data={realDataPH} />
+                    <CardChartRealtime
+                        title={'Data Realtime TDS'}
+                        label={'TDS'}
+                        name={'tds'}
+                        batasMaksimum={800}
+                        batasMinimum={0}
+                        data={realDataTDS} />
+                    <CardChartRealtime
+                        title={'Data Realtime Suhu'}
+                        label={'Suhu'}
+                        name={'suhu'}
+                        batasMaksimum={28}
+                        batasMinimum={26}
+                        data={realDataSUHU} />
+                    <CardChartRealtime
+                        title={'Data Realtime Salinitas'}
+                        label={'Salinitas'}
+                        name={'sal'}
+                        batasMaksimum={12}
+                        batasMinimum={2}
+                        data={realDataSAL} />
+                    <CardChartRealtime
+                        title={'Data Realtime Amonia'}
+                        label={'Amonia'}
+                        name={'amo'}
+                        batasMaksimum={1}
+                        batasMinimum={0}
+                        data={realDataAMO} />
+                    {/* <Graph base_url={base_url} /> */}
                 </div>
                 <Footer />
             </div >

@@ -5,17 +5,6 @@ import { useEffect, useState } from "react";
 
 
 function SocketSensor({ sensor, latest }) {
-    const [modal, setModal] = useState(false)
-    const [labelModal, setLabelModal] = useState('')
-
-    const handleModal = (e) => {
-        setModal(true)
-        setLabelModal(e)
-    }
-    const handleModalClose = () => {
-        setModal(false)
-    }
-
     const [condition, setCondition] = useState([
         { id: 1, name: "ph", fullName: "ph", from: 7.5, to: 8.5, kondisi: "", ket: "" },
         { id: 2, name: "tds", fullName: "TDS", from: 0, to: 800, kondisi: "", ket: "" },
@@ -114,74 +103,14 @@ function SocketSensor({ sensor, latest }) {
         })
     }
 
-    const renderModal = () => {
-        return (
-            <>
-                <div className={modal == true ? "my-modal" : "my-modal-none"}>
-                    <div className="item shadow-md pt-3 pb-3">
-                        {condition.map((cc, index) => (
-                            cc.name == labelModal &&
-                            <>
-                                <div className="flex justify-between">
-                                    <h2 className="text-xl font-bold uppercase">{cc.fullName}</h2>
-                                    <button className="btn btn-sm btn-ghost" onClick={() => handleModalClose()}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </button>
-                                </div>
-                                <hr className="m-3" />
-                                <div className="grid grid-cols-6 items-center gap-3 p-3">
-                                    <>
-                                        <div className="col-span-2">Kondisi</div>
-                                        <div className="col-span-1">:</div>
-                                        <div className="col-span-3 ">
-                                            {cc.kondisi == 'low' &&
-                                                <>
-                                                    <div className="LowCondition">
-                                                        Rendah
-                                                    </div>
-                                                </>}
-                                            {cc.kondisi == 'high' &&
-                                                <>
-                                                    <div className="HighCondition">
-                                                        Tinggi
-                                                    </div>
-                                                </>}
-                                            {cc.kondisi == 'normal' &&
-                                                <>
-                                                    <div className="NormalCondition">
-                                                        Normal
-                                                    </div>
-                                                </>}
-                                        </div>
-                                    </>
-                                    <>
-                                        <div className="col-span-2">Aksi</div>
-                                        <div className="col-span-1">:</div>
-                                        <div className="col-span-3">
-                                            <p className="text-justify capitalize">
-                                                {cc.ket}
-                                            </p>
-                                        </div>
-                                    </>
-                                </div >
-                            </>
-                        ))}
-                    </div>
-                </div>
-            </>
-        )
-    }
     return (
         <>
             {renderCondition()}
-            {renderModal()}
             <div className="grid grid-cols-2 lg:gap-5 gap-3 md:grid-cols-3 lg:grid-cols-5 justify-center all-sensor lg:p-5 p-3 lg:mt-0 mt-5">
                 {/* PH */}
                 <div className="flex justify-center  card bg-white shadow-xl border aspect-square">
                     <button
-                        onClick={() => handleModal("ph")}
+                        // onClick={() => handleModal("ph")}
                         className={condition[0].kondisi == 'normal'
                             ? "absolute rounded-none btn-square btn btn-alert shadow-lg top-0 right-0 z-10"
                             : condition[0].kondisi == 'low'
@@ -213,7 +142,7 @@ function SocketSensor({ sensor, latest }) {
                 {/* TDS */}
                 <div className="flex justify-center  card bg-white shadow-xl border aspect-square">
                     <button
-                        onClick={() => handleModal("tds")}
+                        // onClick={() => handleModal("tds")}
                         className={condition[1].kondisi == 'normal'
                             ? "absolute rounded-none btn-square btn btn-alert shadow-lg top-0 right-0 z-10"
                             : condition[1].kondisi == 'low'
@@ -243,7 +172,7 @@ function SocketSensor({ sensor, latest }) {
 
                 <div className="flex justify-center  card bg-white shadow-xl border aspect-square">
                     <button
-                        onClick={() => handleModal("suhu")}
+                        // onClick={() => handleModal("suhu")}
                         className={condition[2].kondisi == 'normal'
                             ? "absolute rounded-none btn-square btn btn-alert shadow-lg top-0 right-0 z-10"
                             : condition[2].kondisi == 'low'
@@ -272,7 +201,8 @@ function SocketSensor({ sensor, latest }) {
 
                 {/* SALINITAS */}
                 <div className="flex justify-center  card bg-white shadow-xl border aspect-square">
-                    <button onClick={() => handleModal("sal")}
+                    <button
+                        // onClick={() => handleModal("sal")}
                         className={condition[3].kondisi == 'normal'
                             ? "absolute rounded-none btn-square btn btn-alert shadow-lg top-0 right-0 z-10"
                             : condition[3].kondisi == 'low'
@@ -299,7 +229,7 @@ function SocketSensor({ sensor, latest }) {
                 {/* AMONIA*/}
                 <div className="flex justify-center  card bg-white shadow-xl border aspect-square">
                     <button
-                        onClick={() => handleModal("amo")}
+                        // onClick={() => handleModal("amo")}
                         className={condition[4].kondisi == 'normal'
                             ? "absolute rounded-none btn-square btn btn-alert shadow-lg top-0 right-0 z-10"
                             : condition[4].kondisi == 'low'

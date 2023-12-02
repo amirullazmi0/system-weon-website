@@ -63,15 +63,15 @@ class AdminController extends Controller
         ];
         return Inertia::render('Admin/Calibrate', $data);
     }
-    public function prediction()
+    public function chart()
     {
         $data = [
-            "title" => "Prediction",
-            "active" => "prediction",
-            "sensor" => Sensor::orderBy('id', 'desc')->get(),
+            "title" => "Grafik",
+            "active" => "chart",
             "auth" => auth()->user(),
+            "base_url" => env('APP_URL')
         ];
-        return Inertia::render('Admin/Prediction', $data);
+        return Inertia::render('Admin/Chart', $data);
     }
 
     public function profil()

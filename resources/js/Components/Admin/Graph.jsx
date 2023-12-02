@@ -81,42 +81,6 @@ const Graph = ({ base_url }) => {
         <>
             <div className="">
                 <div className="grid lg:gap-4 gap-3 lg:p-5 p-3 lg:pb-10 pb-10 grid-cols-1 lg:grid-cols-2 justify-center all-sensor overflow-x-auto">
-                    {/* <div className="card border shadow-xl bg-white lg:min-h-[510px] min-h-[320px]">
-                        <div className="p-3 text-center text-xl uppercase font-bold text-[#1c1e1f]">Grafik Per Jam</div>
-                        {rataPerjam ?
-                            (
-                                <>
-                                    <div className="grid lg:grid-cols-2 p-3 gap-2">
-                                        <div className="">
-                                            <label htmlFor="">Pilih Tanggal</label>
-                                            <input value={day} onChange={(e) => setDay(e.target.value)} type="date" placeholder="Type here" className="input input-bordered w-full" />
-                                        </div>
-                                    </div>
-                                    <ChartItem
-                                        title={"Grafik Per Jam"}
-                                        values={rataPerjam}
-                                    />
-                                </>
-                            )
-                            :
-                            <>
-                                <div className="flex justify-center items-center p-4 h-full w-full">
-                                    <ThreeCircles
-                                        height="70"
-                                        width="70"
-                                        color="rgb(210, 210, 210)"
-                                        wrapperStyle={{}}
-                                        wrapperClass=""
-                                        visible={true}
-                                        ariaLabel="three-circles-rotating"
-                                        outerCircleColor=""
-                                        innerCircleColor=""
-                                        middleCircleColor=""
-                                    />
-                                </div>
-                            </>
-                        }
-                    </div> */}
                     <div className="card  shadow-xl border bg-white lg:min-h-[510px] min-h-[320px]">
                         <div className="p-3 text-center text-xl uppercase font-bold text-[#1c1e1f]">Grafik Per Jam</div>
                         <ChartPerjam />
@@ -133,58 +97,6 @@ const Graph = ({ base_url }) => {
                         <div className="p-3 text-center text-xl uppercase font-bold text-[#1c1e1f]">Grafik Per Bulanan</div>
                         <ChartBulanan />
                     </div>
-                    {/* <div className="card  shadow-xl border bg-white lg:min-h-[510px] min-h-[320px]">
-                        <div className="p-3 text-center text-xl uppercase font-bold text-[#1c1e1f]">Grafik Per Minggu</div>
-                        {rataMingguan ?
-                            <ChartItem
-                                title={"Grafik Per Minggu"}
-                                values={rataMingguan}
-                            />
-                            :
-                            <>
-                                <div className="flex justify-center items-center p-4 h-full w-full">
-                                    <ThreeCircles
-                                        height="70"
-                                        width="70"
-                                        color="rgb(210, 210, 210)"
-                                        wrapperStyle={{}}
-                                        wrapperClass=""
-                                        visible={true}
-                                        ariaLabel="three-circles-rotating"
-                                        outerCircleColor=""
-                                        innerCircleColor=""
-                                        middleCircleColor=""
-                                    />
-                                </div>
-                            </>
-                        }
-                    </div>
-                    <div className="card  shadow-xl border bg-white lg:min-h-[510px] min-h-[320px]">
-                        <div className="p-3 text-center text-xl uppercase font-bold text-[#1c1e1f]">Grafik Per Bulan</div>
-                        {rataBulanan ?
-                            <ChartItem
-                                title={"Grafik Per Bulan"}
-                                values={rataBulanan}
-                            />
-                            :
-                            <>
-                                <div className="flex justify-center items-center p-4 h-full w-full">
-                                    <ThreeCircles
-                                        height="70"
-                                        width="70"
-                                        color="rgb(210, 210, 210)"
-                                        wrapperStyle={{}}
-                                        wrapperClass=""
-                                        visible={true}
-                                        ariaLabel="three-circles-rotating"
-                                        outerCircleColor=""
-                                        innerCircleColor=""
-                                        middleCircleColor=""
-                                    />
-                                </div>
-                            </>
-                        }
-                    </div> */}
                 </div>
             </div>
         </>

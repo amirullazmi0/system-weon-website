@@ -1,10 +1,11 @@
+import Graph from '@/Components/Admin/Graph';
 import Jumbotron from '@/Components/Admin/Jumbotron';
 import Navbar from '@/Components/Admin/Navbar';
-import SocketSensor from '@/Components/Admin/SocketSensor';
-import TableItem from '@/Components/Admin/TableItem';
 import { Link, Head } from '@inertiajs/react';
+import Footer from './Footer';
 
-export default function Prediction(props) {
+export default function Chart(props) {
+    const base_url = props.base_url
     return (
         <>
             <div className='bg-body'>
@@ -12,12 +13,10 @@ export default function Prediction(props) {
                 <Navbar auth={props.auth} active={props.active} />
                 <Jumbotron />
                 <div className="lg:p-6 mr-auto">
-                    <div className="card bg-base-100 border shadow-sm p-2 m-2">
-                        <div className="p-3 flex justify-center">
-                            <h1>THIS IS PREDICTION</h1>
-                        </div>
-                    </div>
+                    <div className="p-3 font-bold">GRAFIK HISTORI</div>
+                    <Graph base_url={base_url} />
                 </div>
+                <Footer />
             </div>
         </>
     );
