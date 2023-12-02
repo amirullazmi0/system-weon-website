@@ -189,7 +189,7 @@ const CardChartRealtime = ({ title, label, batasMaksimum, batasMinimum, data, na
                         <div className="lg:col-span-4 lg:md:hidden block">
                             <Line options={options} height={400} data={config} />
                         </div>
-                        <div className="lg:col-span-2">
+                        <div className="lg:col-span-2 p-2">
                             <div className="rounded-lg shadow-lg overflow-hidden bg-white">
                                 {/* <div className="p-3 text-center font-bold uppercase">Kondisi</div> */}
                                 <div className={`p-3 text-center font-bold uppercase text-white ${data[data.length - 1] > batasMaksimum || data[data.length - 1] < batasMinimum ? `bg-red ` : `bg-lime-500`}`}>
