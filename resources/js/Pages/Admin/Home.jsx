@@ -46,7 +46,7 @@ export default function Home(props) {
 
     const getRealDataPH = useCallback(() => {
         const newData = [];
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < sensor.length; i++) {
             newData.push(sensor[i].value1);
         }
         return newData;
@@ -54,28 +54,28 @@ export default function Home(props) {
 
     const getRealDataTDS = useCallback(() => {
         const newData = [];
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < sensor.length; i++) {
             newData.push(sensor[i].value2)
         }
         return newData;
     }, [sensor])
     const getRealDataSUHU = useCallback(() => {
         const newData = [];
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < sensor.length; i++) {
             newData.push(sensor[i].value3)
         }
         return newData;
     }, [sensor])
     const getRealDataSAL = useCallback(() => {
         const newData = [];
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < sensor.length; i++) {
             newData.push(sensor[i].value4)
         }
         return newData;
     }, [sensor])
     const getRealDataAMO = useCallback(() => {
         const newData = [];
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < sensor.length; i++) {
             newData.push(sensor[i].value5)
         }
         return newData;
@@ -111,7 +111,7 @@ export default function Home(props) {
         setSocket(event.message);
 
         if (event.message) {
-            for (let i = 0; i < 19; i++) {
+            for (let i = 0; i < sensor.length - 1; i++) {
                 setRealDataPH(prevRealDataPH => {
                     const newData = [...prevRealDataPH];
                     newData[i] = realDataPH[i + 1];
@@ -141,27 +141,27 @@ export default function Home(props) {
             }
             setRealDataPH(prevRealDataPH => {
                 const newData = [...prevRealDataPH];
-                newData[19] = event.message.value1;
+                newData[sensor.length - 1] = event.message.value1;
                 return newData;
             });
             setRealDataTDS(prevRealDataTDS => {
                 const newData = [...prevRealDataTDS];
-                newData[19] = event.message.value2;
+                newData[sensor.length - 1] = event.message.value2;
                 return newData;
             });
             setRealDataSUHU(prevRealDataSUHU => {
                 const newData = [...prevRealDataSUHU];
-                newData[19] = event.message.value3;
+                newData[sensor.length - 1] = event.message.value3;
                 return newData;
             });
             setRealDataSAL(prevRealDataSAL => {
                 const newData = [...prevRealDataSAL];
-                newData[19] = event.message.value4;
+                newData[sensor.length - 1] = event.message.value4;
                 return newData;
             });
             setRealDataAMO(prevRealDataAMO => {
                 const newData = [...prevRealDataAMO];
-                newData[19] = event.message.value5;
+                newData[sensor.length - 1] = event.message.value5;
                 return newData;
             });
         }

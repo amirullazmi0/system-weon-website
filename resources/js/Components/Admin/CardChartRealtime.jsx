@@ -133,16 +133,11 @@ const CardChartRealtime = ({ title, label, batasMaksimum, batasMinimum, data, na
             y: {
                 // duration: 2000,
                 delay: 500
-            }
+            },
         },
     };
 
-    const labels = [
-        '', '', '', '', '',
-        '', '', '', '', '',
-        '', '', '', '', '',
-        '', '', '', '', '',
-    ];
+    const labels = data.map((item) => '')
     const config = {
         labels,
         datasets: [
@@ -151,9 +146,9 @@ const CardChartRealtime = ({ title, label, batasMaksimum, batasMinimum, data, na
                 data: data,
                 borderColor: '#FFC300',
                 backgroundColor: '#FFC300',
-                pointRadius: 7,
-                pointHoverRadius: 10,
-                tension: 0.2
+                pointRadius: 1,
+                pointHoverRadius: 2,
+                tension: 0.1
                 // yAxisID: 'y',
             },
             {
@@ -162,7 +157,9 @@ const CardChartRealtime = ({ title, label, batasMaksimum, batasMinimum, data, na
                 borderColor: '#25a18e4a',
                 backgroundColor: '#25a18e4a',
                 fill: 2,
-                tension: 0.5
+                tension: 0.5,
+                pointRadius: 0,
+                pointHoverRadius: 1,
                 // yAxisID: 'y1',
             },
             {
@@ -170,6 +167,8 @@ const CardChartRealtime = ({ title, label, batasMaksimum, batasMinimum, data, na
                 data: labels.map((item) => batasMinimum),
                 borderColor: '#0035664a',
                 backgroundColor: '#0035664a',
+                pointRadius: 0,
+                pointHoverRadius: 1,
                 // yAxisID: 'y1',
             },
         ],
@@ -184,8 +183,11 @@ const CardChartRealtime = ({ title, label, batasMaksimum, batasMinimum, data, na
                         {title}
                     </div>
                     <div className="grid lg:grid-cols-6">
-                        <div className="lg:col-span-4">
+                        <div className="lg:col-span-4 lg:md:block hidden">
                             <Line options={options} data={config} />
+                        </div>
+                        <div className="lg:col-span-4 lg:md:hidden block">
+                            <Line options={options} height={400} data={config} />
                         </div>
                         <div className="lg:col-span-2">
                             <div className="rounded-lg shadow-lg overflow-hidden bg-white">

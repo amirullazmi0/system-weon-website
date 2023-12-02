@@ -25,7 +25,7 @@ class AdminController extends Controller
             "active" => "dashboard",
             "sensor" => Sensor::latest('id')->first(),
             "auth" => auth()->user(),
-            "allSensor" => Sensor::latest('id')->take(20)->get(),
+            "allSensor" => Sensor::latest('id')->take(50)->get(),
             "base_url" => env('APP_URL')
             // "rata" => $rata
         ];
