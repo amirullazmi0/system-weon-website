@@ -1,59 +1,71 @@
 {
-  "_Hourglass-256e45f0.js": {
-    "file": "assets/Hourglass-256e45f0.js",
+  "_Graph-6edb8a8f.js": {
+    "file": "assets/Graph-6edb8a8f.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Hourglass-8067c73d.js"
+    ]
+  },
+  "_Hourglass-8067c73d.js": {
+    "file": "assets/Hourglass-8067c73d.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_InputError-8f121a86.js": {
-    "file": "assets/InputError-8f121a86.js",
+  "_InputError-275fcabf.js": {
+    "file": "assets/InputError-275fcabf.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Navbar-08924b15.js": {
-    "file": "assets/Navbar-08924b15.js",
+  "_Navbar-0e4600b2.js": {
+    "file": "assets/Navbar-0e4600b2.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_TableItem-e5a8d67f.js": {
-    "file": "assets/TableItem-e5a8d67f.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
-  "_index-bf55ea98.js": {
-    "file": "assets/index-bf55ea98.js",
+  "_index-255775ca.js": {
+    "file": "assets/index-255775ca.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "resources/js/Pages/Admin/AllTable.jsx": {
-    "file": "assets/AllTable-62643812.js",
+    "file": "assets/AllTable-08800d78.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Navbar-08924b15.js",
-      "_index-bf55ea98.js",
-      "_TableItem-e5a8d67f.js",
+      "_Navbar-0e4600b2.js",
+      "_index-255775ca.js",
       "resources/js/Pages/Admin/Footer.jsx",
-      "_Hourglass-256e45f0.js"
+      "_Hourglass-8067c73d.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/AllTable.jsx"
   },
   "resources/js/Pages/Admin/Calibrate.jsx": {
-    "file": "assets/Calibrate-7c114400.js",
+    "file": "assets/Calibrate-0b275b02.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Navbar-08924b15.js",
+      "_Navbar-0e4600b2.js",
       "resources/js/Pages/Admin/Footer.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/Calibrate.jsx"
   },
+  "resources/js/Pages/Admin/Chart.jsx": {
+    "file": "assets/Chart-e0a87e81.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Graph-6edb8a8f.js",
+      "_Navbar-0e4600b2.js",
+      "resources/js/Pages/Admin/Footer.jsx",
+      "_Hourglass-8067c73d.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Admin/Chart.jsx"
+  },
   "resources/js/Pages/Admin/Footer.jsx": {
-    "file": "assets/Footer-e7e5a6c6.js",
+    "file": "assets/Footer-c7d8b17f.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -61,66 +73,56 @@
     "src": "resources/js/Pages/Admin/Footer.jsx"
   },
   "resources/js/Pages/Admin/Home.jsx": {
-    "file": "assets/Home-69bd8e51.js",
+    "file": "assets/Home-f42e48a2.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Hourglass-256e45f0.js",
-      "_Navbar-08924b15.js",
-      "_index-bf55ea98.js",
-      "resources/js/Pages/Admin/Footer.jsx"
+      "_Graph-6edb8a8f.js",
+      "_Navbar-0e4600b2.js",
+      "_index-255775ca.js",
+      "resources/js/Pages/Admin/Footer.jsx",
+      "_Hourglass-8067c73d.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/Home.jsx"
   },
-  "resources/js/Pages/Admin/Prediction.jsx": {
-    "file": "assets/Prediction-925c9169.js",
-    "imports": [
-      "resources/js/app.jsx",
-      "_Navbar-08924b15.js",
-      "_index-bf55ea98.js",
-      "_TableItem-e5a8d67f.js"
-    ],
-    "isDynamicEntry": true,
-    "src": "resources/js/Pages/Admin/Prediction.jsx"
-  },
   "resources/js/Pages/Admin/Profil.jsx": {
-    "file": "assets/Profil-d8c42aa9.js",
+    "file": "assets/Profil-33313460.js",
     "imports": [
       "resources/js/app.jsx",
-      "_InputError-8f121a86.js",
-      "_Navbar-08924b15.js",
+      "_InputError-275fcabf.js",
+      "_Navbar-0e4600b2.js",
       "resources/js/Pages/Admin/Footer.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Admin/Profil.jsx"
   },
   "resources/js/Pages/Auth/Login.jsx": {
-    "file": "assets/Login-49e36bc9.js",
+    "file": "assets/Login-3c817d53.js",
     "imports": [
       "resources/js/app.jsx",
-      "_InputError-8f121a86.js"
+      "_InputError-275fcabf.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Login.jsx"
   },
   "resources/js/app.css": {
-    "file": "assets/app-01244a69.css",
+    "file": "assets/app-06689007.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.jsx": {
     "css": [
-      "assets/app-01244a69.css"
+      "assets/app-06689007.css"
     ],
     "dynamicImports": [
       "resources/js/Pages/Admin/AllTable.jsx",
       "resources/js/Pages/Admin/Calibrate.jsx",
+      "resources/js/Pages/Admin/Chart.jsx",
       "resources/js/Pages/Admin/Footer.jsx",
       "resources/js/Pages/Admin/Home.jsx",
-      "resources/js/Pages/Admin/Prediction.jsx",
       "resources/js/Pages/Admin/Profil.jsx",
       "resources/js/Pages/Auth/Login.jsx"
     ],
-    "file": "assets/app-71d19bf9.js",
+    "file": "assets/app-022da155.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
   }
