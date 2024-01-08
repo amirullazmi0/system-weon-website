@@ -94,7 +94,7 @@ class SensorController extends Controller
         $phMin = 7.5;
         $phMax = 8.5;
         $tdsMin = 0;
-        $tdsMax = 100;
+        $tdsMax = 800;
         $suhuMin = 26;
         $suhuMax = 28;
         $salMin = 2;
@@ -102,34 +102,6 @@ class SensorController extends Controller
         $amoMin = 0;
         $amoMax = 1;
         $FcmToken = "cMed80h7QDukBeAuZxv2sK:APA91bEU_utVGAqP1lBqmmqTIoWXWjM3GZhJQInY3iU2iXwHEJoNsBkHhnSHkMpykktZkPfh_DqBPu0HJVAWfezEMhr5S4CfoXZCtXRcYfGjurhOD5FlvykT5yx8Cr1Tnrxq8ltqdRnm";
-
-        if (($request->value1 < $phMin || $request->value1 > $phMax)) {
-            $message = CloudMessage::fromArray([
-                'token' => $FcmToken,
-                'notification' => [
-                    'title' => 'Periksa Kondisi Air',
-                    'body' => 'pH tidak stabil'
-                ],
-            ]);
-        }
-        if (($request->value2 < $tdsMin || $request->value2 > $tdsMax)) {
-            $message = CloudMessage::fromArray([
-                'token' => $FcmToken,
-                'notification' => [
-                    'title' => 'Periksa Kondisi Air',
-                    'body' => 'TDS tidak Stabil'
-                ],
-            ]);
-        }
-        if (($request->value2 < $tdsMin || $request->value2 > $tdsMax)) {
-            $message = CloudMessage::fromArray([
-                'token' => $FcmToken,
-                'notification' => [
-                    'title' => 'Periksa Kondisi Air',
-                    'body' => 'TDS tidak Stabil'
-                ],
-            ]);
-        }
 
 
         SensorEvent::dispatch($socket);
