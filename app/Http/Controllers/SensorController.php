@@ -177,7 +177,7 @@ class SensorController extends Controller
                     'token' => $FcmToken,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
-                        'body' => 'Kadar Salinitas tidak Stabil'
+                        'body' => 'Kadar Amonia tidak Stabil'
                     ],
                 ]);
             }
