@@ -2,19 +2,45 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Sensor;
 use Inertia\Controller;
-use App\Events\SensorEvent;
 use App\Models\Calibrate;
+use App\Events\SensorEvent;
 use Illuminate\Http\Request;
+
+use Kreait\Laravel\Firebase\Facades\Firebase;
+use Kreait\Firebase\Messaging\CloudMessage;
+
 
 class SensorController extends Controller
 {
+    protected $notification;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->notification = Firebase::messaging();
+    }
+    public function notification(Request $request)
+    {
+        $FcmToken = "cMed80h7QDukBeAuZxv2sK:APA91bEU_utVGAqP1lBqmmqTIoWXWjM3GZhJQInY3iU2iXwHEJoNsBkHhnSHkMpykktZkPfh_DqBPu0HJVAWfezEMhr5S4CfoXZCtXRcYfGjurhOD5FlvykT5yx8Cr1Tnrxq8ltqdRnm";
+        $title = $request->input('title');
+        $body = $request->input('body');
+        $message = CloudMessage::fromArray([
+            'token' => $FcmToken,
+            'notification' => [
+                'title' => '$title',
+                'body' => '$body'
+            ],
+        ]);
+
+        $this->notification->send($message);
+    }
     public function index()
     {
         //
@@ -65,12 +91,101 @@ class SensorController extends Controller
             'aAMO' => $request->aAMO,
         ];
 
+        $phMin = 7.5;
+        $phMax = 8.5;
+        $tdsMin = 0;
+        $tdsMax = 100;
+        $suhuMin = 26;
+        $suhuMax = 28;
+        $salMin = 2;
+        $salMax = 12;
+        $amoMin = 0;
+        $amoMax = 1;
+        $FcmToken = "cMed80h7QDukBeAuZxv2sK:APA91bEU_utVGAqP1lBqmmqTIoWXWjM3GZhJQInY3iU2iXwHEJoNsBkHhnSHkMpykktZkPfh_DqBPu0HJVAWfezEMhr5S4CfoXZCtXRcYfGjurhOD5FlvykT5yx8Cr1Tnrxq8ltqdRnm";
+
+        if (($request->value1 < $phMin || $request->value1 > $phMax)) {
+            $message = CloudMessage::fromArray([
+                'token' => $FcmToken,
+                'notification' => [
+                    'title' => 'Periksa Kondisi Air',
+                    'body' => 'pH tidak stabil'
+                ],
+            ]);
+        }
+        if (($request->value2 < $tdsMin || $request->value2 > $tdsMax)) {
+            $message = CloudMessage::fromArray([
+                'token' => $FcmToken,
+                'notification' => [
+                    'title' => 'Periksa Kondisi Air',
+                    'body' => 'TDS tidak Stabil'
+                ],
+            ]);
+        }
+        if (($request->value2 < $tdsMin || $request->value2 > $tdsMax)) {
+            $message = CloudMessage::fromArray([
+                'token' => $FcmToken,
+                'notification' => [
+                    'title' => 'Periksa Kondisi Air',
+                    'body' => 'TDS tidak Stabil'
+                ],
+            ]);
+        }
+
+
         SensorEvent::dispatch($socket);
         // event(new SensorEvent($data));
 
         if ($request->upload == true) {
+            if (($request->value1 < $phMin || $request->value1 > $phMax)) {
+                $message = CloudMessage::fromArray([
+                    'token' => $FcmToken,
+                    'notification' => [
+                        'title' => 'Periksa Kondisi Air',
+                        'body' => 'pH tidak stabil'
+                    ],
+                ]);
+            }
+            if (($request->value2 < $tdsMin || $request->value2 > $tdsMax)) {
+                $message = CloudMessage::fromArray([
+                    'token' => $FcmToken,
+                    'notification' => [
+                        'title' => 'Periksa Kondisi Air',
+                        'body' => 'TDS tidak Stabil'
+                    ],
+                ]);
+            }
+            if (($request->value3 < $suhuMin || $request->value3 > $suhuMax)) {
+                $message = CloudMessage::fromArray([
+                    'token' => $FcmToken,
+                    'notification' => [
+                        'title' => 'Periksa Kondisi Air',
+                        'body' => 'Suhu tidak Stabil'
+                    ],
+                ]);
+            }
+            if (($request->value4 < $salMin || $request->value4 > $salMax)) {
+                $message = CloudMessage::fromArray([
+                    'token' => $FcmToken,
+                    'notification' => [
+                        'title' => 'Periksa Kondisi Air',
+                        'body' => 'Kadar Salinitas tidak Stabil'
+                    ],
+                ]);
+            }
+            if (($request->value5 < $amoMin || $request->value5 > $amoMax)) {
+                $message = CloudMessage::fromArray([
+                    'token' => $FcmToken,
+                    'notification' => [
+                        'title' => 'Periksa Kondisi Air',
+                        'body' => 'Kadar Salinitas tidak Stabil'
+                    ],
+                ]);
+            }
             Sensor::create($data);
         }
+
+
+        $this->notification->send($message);
         // simpan data ke database jika diperlukan
         return response()->json(['message' => 'Data berhasil diterima', $data]);
     }
@@ -124,5 +239,13 @@ class SensorController extends Controller
     {
         $data = Calibrate::all();
         return response()->json($data);
+    }
+
+    public function notif(Request $request)
+    {
+        return response()->json([
+            'status' => true,
+            'notif' => 'ini notif'
+        ]);
     }
 }

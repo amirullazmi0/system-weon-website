@@ -24,6 +24,8 @@ use App\Http\Controllers\ProfileController;
 
 
 Route::get('/postSensor', [SensorController::class, 'store']);
+Route::get('/pushNotif', [SensorController::class, 'notification']);
+// Route::get('/pushNotif', [SensorController::class, 'notif']);
 Route::get('/getCalibrate', [SensorController::class, 'getCalibrate']);
 Route::get('/data', [SensorController::class, 'index']);
 
