@@ -110,90 +110,102 @@ class SensorController extends Controller
 
         if ($request->upload == true) {
             if (($request->value1 < $phMin || $request->value1 > $phMax)) {
-                $message = CloudMessage::fromArray([
+                $message_ph1 = CloudMessage::fromArray([
                     'token' => $FcmToken,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
                         'body' => 'pH tidak stabil'
                     ],
                 ]);
-                $message = CloudMessage::fromArray([
+                $message_ph2 = CloudMessage::fromArray([
                     'token' => $FcmToken2,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
                         'body' => 'pH tidak stabil'
                     ],
                 ]);
+                $this->notification->send($message_ph1);
+                $this->notification->send($message_ph2);
             }
             if (($request->value2 < $tdsMin || $request->value2 > $tdsMax)) {
-                $message = CloudMessage::fromArray([
+                $message_tds1 = CloudMessage::fromArray([
                     'token' => $FcmToken,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
                         'body' => 'TDS tidak Stabil'
                     ],
                 ]);
-                $message = CloudMessage::fromArray([
+
+                $message_tds2 = CloudMessage::fromArray([
                     'token' => $FcmToken2,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
                         'body' => 'TDS tidak Stabil'
                     ],
                 ]);
+
+                $this->notification->send($message_tds1);
+                $this->notification->send($message_tds2);
             }
             if (($request->value3 < $suhuMin || $request->value3 > $suhuMax)) {
-                $message = CloudMessage::fromArray([
+                $message_suhu1 = CloudMessage::fromArray([
                     'token' => $FcmToken,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
                         'body' => 'Suhu tidak Stabil'
                     ],
                 ]);
-                $message = CloudMessage::fromArray([
+                $message_suhu2 = CloudMessage::fromArray([
                     'token' => $FcmToken2,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
                         'body' => 'Suhu tidak Stabil'
                     ],
                 ]);
+
+                $this->notification->send($message_suhu1);
+                $this->notification->send($message_suhu2);
             }
             if (($request->value4 < $salMin || $request->value4 > $salMax)) {
-                $message = CloudMessage::fromArray([
+                $message_sal1 = CloudMessage::fromArray([
                     'token' => $FcmToken,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
                         'body' => 'Kadar Salinitas tidak Stabil'
                     ],
                 ]);
-                $message = CloudMessage::fromArray([
+                $message_sal2 = CloudMessage::fromArray([
                     'token' => $FcmToken2,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
                         'body' => 'Kadar Salinitas tidak Stabil'
                     ],
                 ]);
+
+                $this->notification->send($message_sal1);
+                $this->notification->send($message_sal2);
             }
             if (($request->value5 < $amoMin || $request->value5 > $amoMax)) {
-                $message = CloudMessage::fromArray([
+                $message_amo1 = CloudMessage::fromArray([
                     'token' => $FcmToken,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
                         'body' => 'Kadar Amonia tidak Stabil'
                     ],
                 ]);
-                $message = CloudMessage::fromArray([
+                $message_amo2 = CloudMessage::fromArray([
                     'token' => $FcmToken2,
                     'notification' => [
                         'title' => 'Periksa Kondisi Air',
                         'body' => 'Kadar Amonia tidak Stabil'
                     ],
                 ]);
+                $this->notification->send($message_amo1);
+                $this->notification->send($message_amo2);
             }
             Sensor::create($data);
         }
 
-
-        $this->notification->send($message);
         // simpan data ke database jika diperlukan
         return response()->json(['message' => 'Data berhasil diterima', $data]);
     }
